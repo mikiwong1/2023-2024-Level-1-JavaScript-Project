@@ -1,36 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calorie Counter</title>
+<style>
+
+</style>
 <script>
 
-    function initialize(){
-        outputDIv = document.getElementById("ouput");
-        appFat = 0;
-        appCarbs = 0;
-        appProtein = 0;
-        entFat = 0;
-        entCarbs = 0;
-        entProtein = 0;
-        desFat = 0;
-        appCarbs = 0;
-        appProtein = 0;
+function initialize(){
+    
+    ouptuDiv = document.getElementById("output");
+   
+    appFat= 0;
+    appCarb = 0;
+    appPro = 0;
+    appTot = 0;
+
+    entFat= 0;
+    entCarb = 0;
+    entPro = 0;
+    
+    display();
+
+}
+
+
+
+function app(num){
+    
+    if(num > 0){
+        if(num == 1){
+            appFat ++;
+        } else if(num == 2){
+            appCarb ++;
+        } else if(num == 3){
+            appPro ++;
+        }
     }
 
-    function calcFat(){
-
+    if(num < 0){
+        if(num == -1 && appFat > 0){
+            appFat --;
+        } else if(num == -2 && appCarb > 0){
+            appCarb --;
+        } else if(num == -3 && appPro > 0){
+            appPro --;
+        }
     }
 
-    function display(){
-        output.innerHTML = "Fat: " + fat + " g" + "Carbohydrates: " + carbs + " g" + "Proteins: " + protein + " g";
-    }
+    calcCal();
+    display();
+
+}
+
+//(fat * 9) + (carbohydrates * 4) + (protein * 4)
+function calcCal(){
+    appTot = appFat*9 + appCarb*4 + appPro*4;
+}
+
+
+function display(){
+
+    output.innerHTML = " Fat: " + appFat + " Carbohydrate: " + appCarb + " Protein: " + appPro + "</br>" + "Total Calories in Appetizer: " + appTot;
+    
+}
+
 
 </script>
-<body>
-    
+</head>
+<body onload="initialize();">
+
+<p id="output"></p>
+
+<button onclick="app(1);">+ Fat</button><button onclick="app(-1);">- Fat</button></body></br>
+<button onclick="app(2);">+ Carb</button><button onclick="app(-2);">- Carb</button></br>
+<button onclick="app(3);">+ Protein</button><button onclick="app(-3);">- Protein</button>
+
+
 </body>
 </html>
