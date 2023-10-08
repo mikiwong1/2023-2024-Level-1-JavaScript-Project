@@ -12,7 +12,11 @@
 
 function initialize(){
     
-    ouptuDiv = document.getElementById("output");
+    ouptuDiv = document.getElementById("output"); 
+               document.getElementById("output1");
+               document.getElementById("output2");
+               document.getElementById("output3");
+    
    
     appFat= 0;
     appCarb = 0;
@@ -22,7 +26,15 @@ function initialize(){
     entFat= 0;
     entCarb = 0;
     entPro = 0;
+    entTot = 0;
     
+    desFat = 0;
+    desCarb = 0;
+    desPro = 0;
+    desTot = 0;
+
+    mealTot = 0;
+
     display();
 
 }
@@ -38,6 +50,12 @@ function app(num){
             appCarb ++;
         } else if(num == 3){
             appPro ++;
+        } else if(num == 4){
+            appFat += 5;
+        } else if(num == 5){
+            appCarb += 5;
+        } else if(num == 6){
+            appPro += 5;
         }
     }
 
@@ -48,6 +66,90 @@ function app(num){
             appCarb --;
         } else if(num == -3 && appPro > 0){
             appPro --;
+        } else if(num == -4){
+            appFat -= 5;
+        } else if(num == -5){
+            appCarb -= 5;
+        } else if(num == -6){
+            appPro -= 5;
+        }
+    }
+
+    calcCal();
+    display();
+
+}
+
+function ent(num){
+    
+    if(num > 0){
+        if(num == 1){
+            entFat ++;
+        } else if(num == 2){
+            entCarb ++;
+        } else if(num == 3){
+            entPro ++;
+        } else if(num == 4){
+            entFat += 5;
+        } else if(num == 5){
+            entCarb += 5;
+        } else if(num == 6){
+            entPro += 5;
+        }
+    }
+
+    if(num < 0){
+        if(num == -1 && entFat > 0){
+            entFat --;
+        } else if(num == -2 && entCarb > 0){
+            entCarb --;
+        } else if(num == -3 && entPro > 0){
+            entPro --;
+        } else if(num == -4){
+            entFat -= 5;
+        } else if(num == -5){
+            entCarb -= 5;
+        } else if(num == -6){
+            entPro -= 5;
+        }
+    }
+
+    calcCal();
+    display();
+
+}
+
+function des(num){
+    
+    if(num > 0){
+        if(num == 1){
+            desFat ++;
+        } else if(num == 2){
+            desCarb ++;
+        } else if(num == 3){
+            desPro ++;
+        } else if(num == -4){
+            desFat += 5;
+        } else if(num == -5){
+            desFat += 5;
+        } else if(num == -6){
+            desPro += 5;
+        }
+    }
+
+    if(num < 0){
+        if(num == -1 && desFat > 0){
+            desFat --;
+        } else if(num == -2 && desCarb > 0){
+            desCarb --;
+        } else if(num == -3 && desPro > 0){
+            desPro --;
+        } else if(num == -4){
+            desFat -= 5;
+        } else if(num == -5){
+            desCarb -= 5;
+        } else if(num == -6){
+            desPro -= 5;
         }
     }
 
@@ -59,13 +161,40 @@ function app(num){
 //(fat * 9) + (carbohydrates * 4) + (protein * 4)
 function calcCal(){
     appTot = appFat*9 + appCarb*4 + appPro*4;
+    entTot = entFat*9 + entCarb*4 + entPro*4;
+    desTot = desFat*9 + desCarb*4 + desPro*4;
+    mealTot = appTot + entTot + desTot;
+}
+
+function reset(){
+    
+    appFat= 0;
+    appCarb = 0;
+    appPro = 0;
+    appTot = 0;
+
+    entFat= 0;
+    entCarb = 0;
+    entPro = 0;
+    entTot = 0;
+    
+    desFat = 0;
+    desCarb = 0;
+    desPro = 0;
+    desTot = 0;
+
+    mealTot = 0;
+
+    display();
 }
 
 
 function display(){
 
     output.innerHTML = " Fat: " + appFat + " Carbohydrate: " + appCarb + " Protein: " + appPro + "</br>" + "Total Calories in Appetizer: " + appTot;
-    
+    output1.innerHTML = " Fat: " + entFat + " Carbohydrate: " + entCarb + " Protein: " + entPro + "</br>" + "Total Calories in Entree: " + entTot;
+    output2.innerHTML = " Fat: " + desFat + " Carbohydrate: " + desCarb + " Protein: " + desPro + "</br>" + "Total Calories in Dessert: " + desTot;
+    output3.innerHTML = "Total Calories in Meal: " + mealTot;
 }
 
 
@@ -75,10 +204,27 @@ function display(){
 
 <p id="output"></p>
 
-<button onclick="app(1);">+ Fat</button><button onclick="app(-1);">- Fat</button></body></br>
-<button onclick="app(2);">+ Carb</button><button onclick="app(-2);">- Carb</button></br>
-<button onclick="app(3);">+ Protein</button><button onclick="app(-3);">- Protein</button>
+<button onclick="app(1);">+1 Fat</button><button onclick="app(2);">+1 Carb</button><button onclick="app(3);">+1 Protein</button></br>
+<button onclick="app(-1);">-1 Fat</button><button onclick="app(-2);">-1 Carb</button><button onclick="app(-3);">-1 Protein</button></br>
+<button onclick="app(4);">+5 Fat</button><button onclick="app(5);">+5 Carb</button><button onclick="app(6);">+5 Protein</button></br>
+<button onclick="app(-4);">-5 Fat</button><button onclick="app(-5);">-5 Carb</button><button onclick="app(-6);">-5 Protein</button>
 
+<p id="output1"></p>
+
+<button onclick="ent(1);">+1 Fat</button><button onclick="ent(2);">+1 Carb</button><button onclick="ent(3);">+1 Protein</button></br>
+<button onclick="ent(-1);">-1 Fat</button><button onclick="ent(-2);">- Carb</button><button onclick="ent(-3);">-1 Protein</button></br>
+<button onclick="ent(4);">+5 Fat</button><button onclick="ent(5);">+5 Carb</button><button onclick="ent(6);">+5 Protein</button></br>
+<button onclick="ent(-4);">-5 Fat</button><button onclick="ent(-5);">-5 Carb</button><button onclick="ent(-6);">-5 Protein</button>
+
+<p id="output2"></p>
+
+<button onclick="des(1);">+1 Fat</button><button onclick="des(2);">+1 Carb</button><button onclick="des(3);">+1 Protein</button></br>
+<button onclick="des(-1);">-1 Fat</button><button onclick="des(-2);">-1 Carb</button><button onclick="des(-3);">-1 Protein</button></br>
+<button onclick="des(4);">+5 Fat</button><button onclick="des(5);">+5 Carb</button><button onclick="des(6);">+5 Protein</button></br>
+<button onclick="des(-4);">-5 Fat</button><button onclick="des(-5);">-5 Carb</button><button onclick="des(-6);">-5 Protein</button>
+
+<p id="output3"></p>
+<button onclick="reset();">Reset</button>
 
 </body>
 </html>
