@@ -6,14 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calorie Counter</title>
 <style>
-h1{
-    text-shadow: 0 0 5px #A7E8BD;
-    text-align: center;
-    font-size: 50px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #EFA7A7;
-}
-
 body{
     text-align: center;
     background-color: #C7EAE4;
@@ -26,6 +18,11 @@ p{
     text-shadow: 0 0 5px #000000;
 }
 
+#reset{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
 button{
     margin-left: 20px;
     margin-bottom: 10px;
@@ -33,11 +30,13 @@ button{
     background-color: #FFD972;
 }
 
-#reset{
-    margin-left: 50px;
-    margin-right: 50px;
+h1{
+    text-shadow: 0 0 5px #A7E8BD;
+    text-align: center;
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #EFA7A7;
 }
-
 </style>
 <script>
 
@@ -97,11 +96,11 @@ function app(num){
             appCarb --;
         } else if(num == -3 && appPro > 0){
             appPro --;
-        } else if(num == -4){
+        } else if(num == -4 && appFat > 0){
             appFat -= 5;
-        } else if(num == -5){
+        } else if(num == -5 && appCarb > 0){
             appCarb -= 5;
-        } else if(num == -6){
+        } else if(num == -6 && appPro > 0){
             appPro -= 5;
         }
     }
@@ -136,11 +135,11 @@ function ent(num){
             entCarb --;
         } else if(num == -3 && entPro > 0){
             entPro --;
-        } else if(num == -4){
+        } else if(num == -4 && entFat > 0){
             entFat -= 5;
-        } else if(num == -5){
+        } else if(num == -5 && entCarb > 0){
             entCarb -= 5;
-        } else if(num == -6){
+        } else if(num == -6 && entPro > 0){
             entPro -= 5;
         }
     }
@@ -175,11 +174,11 @@ function des(num){
             desCarb --;
         } else if(num == -3 && desPro > 0){
             desPro --;
-        } else if(num == -4){
+        } else if(num == -4 && desFat > 0){
             desFat -= 5;
-        } else if(num == -5){
+        } else if(num == -5 && desCarb > 0){
             desCarb -= 5;
-        } else if(num == -6){
+        } else if(num == -6 && desPro > 0){
             desPro -= 5;
         }
     }
