@@ -6,20 +6,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calorie Counter</title>
 <style>
-body{
-    background-color: rgb(208, 255, 182);
+h1{
+    text-shadow: 0 0 5px #A7E8BD;
+    text-align: center;
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #EFA7A7;
 }
 
+body{
+    text-align: center;
+    background-color: #C7EAE4;
+}
+
+p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    color: #A7E8BD;
+    text-shadow: 0 0 5px #000000;
+}
 
 button{
     margin-left: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #FFD972;
 }
 
-h1{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: rgb(240, 170, 65);
+#reset{
+    margin-left: 50px;
+    margin-right: 50px;
 }
+
 </style>
 <script>
 
@@ -239,7 +257,7 @@ function display(){
 <button onclick="des(-4);">-5 Fat</button><button onclick="des(-5);">-5 Carb</button><button onclick="des(-6);">-5 Protein</button>
 
 <p id="output3"></p>
-<button onclick="reset();">Reset</button>
+<button id="reset" onclick="reset();">Reset</button>
 
 </body>
 </html>
